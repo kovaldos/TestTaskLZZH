@@ -1,0 +1,26 @@
+.scroll-to-top {
+	position: fixed;
+	top: auto;
+	bottom: 5em;
+	left: auto;
+	right: 1em;
+	transform: translateX(200%);
+	width: fit-content;
+	transition: all $trans-default;
+	z-index: 5;
+	&__btn {
+		width: 2em;
+		height: 2em;
+		margin: 0;
+		padding: 0.5em;
+		border-radius: 50%;
+		background-color: $color-Dodger-Blue;
+		align-items: center;
+		justify-content: center;
+		transition: all $trans-600;
+		transform: rotate(-90deg);
+	}
+	&.is-active {
+		transform: translateX(0);
+	}
+}

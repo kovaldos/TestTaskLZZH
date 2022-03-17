@@ -1,0 +1,78 @@
+mixin posted-works ()
+	-
+		const data = {
+			title: "The latest freelance work!",
+			subtitle: "Recently Posted ",
+			subtitleColored: "Works",
+			items: [
+				{
+					path: "content",
+					pic: "Material-Ui-pic",
+					alt: "Material-ui-pic",
+					title: "Logo Design",
+					text: "Need a professional logo with writing underneath for our jewellery company",
+					bidText: "Highest bid",
+					bidCurrency: "$",
+					bidAmount: "500",
+					link: {
+						href: "#",
+						text: "Apply now"
+					},
+				},
+				{
+					path: "content",
+					pic: "graphic-design-pic",
+					alt: "graphic-design-pic",
+					title: "Graphic Design",
+					text: "We need a graphic designer with UI/UX skills for our Furniture company",
+					bidText: "Highest bid",
+					bidCurrency: "$",
+					bidAmount: "500",
+					link: {
+						href: "#",
+						text: "Apply now"
+					},
+				},
+				{
+					path: "content",
+					pic: "need-a-SEO-pic",
+					alt: "need-a-SEO-pic",
+					title: "Need a SEO",
+					text: "Need a SEO for our company who will let our company to a higher level",
+					bidText: "Highest bid",
+					bidCurrency: "$",
+					bidAmount: "500",
+					link: {
+						href: "#",
+						text: "Apply now"
+					},
+				},
+			]
+		}
+
+	section.posted-works 
+		.container.posted-works__container
+			.posted-works__heading
+				h2.posted-works__title=data.title
+				h2.posted-works__subtitle=data.subtitle
+					span.posted-works__subtitle--colored=data.subtitleColored
+			.posted-works__slider.swiper
+				.posted-works__slider-button.posted-works__slider-button--prev.swiper-button-prev
+					+icon("icon-arrow", 33, 33)
+				.posted-works__slider-button.posted-works__slider-button--next.swiper-button-next
+					+icon("icon-arrow", 33, 33)
+				.posted-works__slider-wrapper.swiper-wrapper
+					- for (let i = 0; i < 2; i++)
+						each item in data.items
+							.swiper-slide
+								.posted-works__slider-item
+									.posted-works__slider-pic 
+										+picture(item.path, item.pic, "png", "80", "80", item.alt)
+									h3.posted-works__slider-title=item.title 
+									p.posted-works__slider-text=item.text 
+									.posted-works__slider-action
+										.posted-works__slider-bid
+											span.posted-works__slider-bid-text=item.bidText
+											span.posted-works__slider-bid-currency=item.bidCurrency
+											span.posted-works__slider-bid-amount=item.bidAmount
+										a.posted-works__slider-link(href=item.link.href)=item.link.text

@@ -1,0 +1,163 @@
+.benefits {
+	&__items {
+		position: relative;
+		width: 100%;
+		padding: 1.708em 3.167em;
+		display: flex;
+		justify-content: space-between;
+		gap: 1em;
+		box-shadow: 0px 20px 30px rgba($color-default-black, 0.05);
+		border-radius: 10px;
+		background: $color-default-white;
+		z-index: 5;
+		@include vp-767 {
+			flex-direction: column;
+			align-items: center;
+			margin-top: 5em;
+			box-shadow: 5px 5px 10px 10px rgba($color-default-black, 0.1);
+		}
+	}
+	&__item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		max-width: 255px;
+		&:first-of-type {
+			max-width: 305px;
+		}
+		@include vp-767 {
+			margin-bottom: 1em;
+		}
+		&-icon-wrapper {
+			width: 111px;
+			height: 111px;
+			border-radius: 50%;
+			background-color: $color-Azure;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 15px;
+		}
+		&-icon {
+			height: 60px;
+		}
+		&-title {
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			font-weight: 500;
+			font-size: 1.25em;
+			line-height: 150%;
+		}
+		&-text {
+			margin: 0;
+			text-align: center;
+			font-weight: 400;
+			font-size: 1em;
+			line-height: 150%;
+			color: $color-Nobel;
+		}
+	}
+	&__description {
+		margin-top: 7.33em;
+		display: flex;
+		@include vp-1023 {
+			flex-direction: column-reverse;
+		}
+		&-item {
+			&.item-01 {
+				flex: auto;
+				width: 100%;
+				max-width: 616px;
+				position: relative;
+				margin-right: auto;
+			}
+			&.item-02 {
+				width: 100%;
+				max-width: 516px;
+				text-align: right;
+				padding-left: 0.625em;
+				@include vp-1023 {
+					max-width: 90%;
+					padding: 0;
+					text-align: left;
+					margin-bottom: 1.5em;
+				}
+			}
+			&-pic {
+				picture, img {
+					height: 100%;
+				}
+			}
+		}
+		&-die {
+			position: absolute;
+			background: $color-default-white;
+			box-shadow: 0px 1px 6px rgba($color-default-black, 0.1);
+			border-radius: 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			&.die-first {
+				top: 1.42em;
+				left: auto;
+				right: 6.5em;
+				padding: 1.125em 0.542em;
+				@include vp-425 {
+					top: -1em;
+					right: 4em;
+				}
+			}
+			&.die-second {
+				top: 9.5em;
+				left: auto;
+				right: -2.08em;
+				padding: 0.96em 0.67em;
+				@include vp-1279 {
+					right: 2em;
+				}
+				@include vp-425 {
+					right: 0;
+					top: 6em;
+				}
+			}
+			&-number {
+				font-weight: 600;
+				font-size: 1.5em;
+				line-height: 150%;
+				color: $color-Dodger-Blue;
+			}
+			&-text {
+				color: $color-Nobel;
+			}
+		}
+		&-title {
+			margin: 0;
+			font-weight: 500;
+			font-size: 2.333em;
+			line-height: 150%;
+			text-align: right;
+			@include vp-1023 {
+				text-align: left;
+			}
+			@include vp-640 {
+				font-size: 2em;
+			}
+			&--colored {
+				color: $color-Dodger-Blue;
+				&:hover,
+				&:focus-visible {
+					opacity: 0.8;
+				}
+			}
+		}
+		&-text {
+			margin: 20px 0 0;
+			padding: 0;
+			font-size: 1em;
+			line-height: 150%;
+			color: $color-Nobel;
+		}
+	}
+}

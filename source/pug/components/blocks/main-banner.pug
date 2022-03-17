@@ -1,0 +1,33 @@
+mixin main-banner ()
+	-
+		const data = {
+			title: "Are you looking for Freelancers?",
+			subtitle: "Hire Great Freelancers, Fast. Spacelance helps you hire elite freelancers at a moment’s notice",
+			linkBtn: {
+				href: "#",
+				text: "Hire a freelancer",
+			},			
+			form: {
+				input: {
+					dataValidateType: "text",
+					inputType: "text",
+					inputPlaceholder: "search freelance work",
+				},
+			}
+		}
+
+	section.main-banner
+		.container.main-banner__container
+			.main-banner__pic 
+				+picture("content", "main-banner-pic", "png", 638, 600, "drawing of a red-haired girl with a laptop").main-banner__pic-img
+			.main-banner__heading 
+				h1.main-banner__title=data.title 
+					span.main-banner__subtitle=data.subtitle
+			.main-banner__form-wrapper
+				a.btn.main-banner__form-link-btn(href=data.linkBtn.href)=data.linkBtn.text
+				.main-banner__form(data-validate)
+					form(action="#", method="get") 
+						+custom-input(data.form.input, "input-search")(data-validate-type="text").main-banner__form-input
+						button.btn.main-banner__form-btn(type="submit")
+							+picture("png-icons", "icon-search", "png", 25, 25, "search-icon")
+

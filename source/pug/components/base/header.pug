@@ -1,0 +1,53 @@
+mixin header(headerMods, currentUrl)
+  -
+    const data = {
+      headerLinks: [
+      {
+        href: "index.html",
+        text: "Home",
+      },
+      {
+        href: "#",
+        text: "Find work",
+      },
+      {
+        href: "#",
+        text: "Find Freelancers",
+      },
+      {
+        href: "#",
+        text: "Log In",
+      },
+      {
+        href: "#",
+        text: "Sign Up",
+      },
+    ],
+    btn: "Post a project",
+    }
+
+  header.header(class=headerMods)
+    .container.header__container
+      .header__row
+        if(currentUrl === "index.html")
+          //- lighthouse снимает 10 баллов SEO за <a> без href
+          span.logo.header__logo
+            +picture("content", "logo", "png", "100%", 52, "Logo")
+        else
+          a.logo.header__logo(href="index.html", aria-label="move to main page")
+            +picture("content", "logo", "png", "100%", 52, "Logo")
+        nav.main-nav
+          button.main-nav__toggle.btn(type="button", aria-label="menu switch", aria-pressed="false" data-menu-icon)
+            span.main-nav__toggle-strip.main-nav__toggle-strip_top
+            span.main-nav__toggle-strip.main-nav__toggle-strip_middle
+            span.main-nav__toggle-strip.main-nav__toggle-strip_bottom
+          .main-nav__wrapper(data-menu-body)
+            ul.main-nav__list
+              each link in data.headerLinks
+                - const activeState = currentUrl === link.href
+                li.main-nav__item
+                  if(activeState)
+                    span.main-nav__link.is-active=link.text
+                  else
+                    a.main-nav__link(href=link.href)=link.text
+        button.btn.header__btn.header__btn--post=data.btn

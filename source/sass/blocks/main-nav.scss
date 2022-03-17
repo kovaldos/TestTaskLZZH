@@ -1,0 +1,127 @@
+.main-nav {
+  margin-left: auto;
+  @include vp-1023 {
+    margin-left: 0;
+  }
+  &__wrapper {
+    @include vp-1023 {
+      position: fixed;
+      top: 6em;
+      background: #fff;
+      z-index: 10;
+      border-radius: 50px 0 0 50px;
+      width: 33vw;
+      height: 50vh;
+      left: auto;
+      right: 0;
+      padding: 1em 1.5em 1em 1em;
+      transition: transform $trans-default;
+      transform: translateX(120%);
+      box-shadow: 0px 5px 10px 0px rgba($color-default-black, 0.1);
+    }
+    @include vp-767 {
+      width: 50vw;
+    }
+    @include vp-425 {
+      width: 100vw;
+    }
+    &.is-active {
+      transform: translateX(0.5em);
+    }
+  }
+  &__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include vp-1023 {
+      flex-direction: column;
+      align-items: flex-end;
+      margin-top: 1em;
+    }
+  }
+  &__item:not(:last-of-type) {
+    margin-right: 5px;
+    @include vp-1023 {
+      margin-right: 0;
+      margin-bottom: 1em;
+    }
+  }
+
+  &__link {
+    color: $color-Nero;
+    font-size: 0.835em;
+    line-height: 150%;
+    padding: 0.75em;
+    transition: all $trans-default;
+    @include vp-1023 {
+      font-size: 1em;
+    }
+    &.is-active {
+      color: $color-Dodger-Blue;
+    }
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &__toggle {
+    position: relative;
+    width: 2.8em;
+    height: 2.5em;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $color-transparent;
+    border: none;
+    padding: 0.5em;
+    margin: 0;
+    @include vp-767 {
+      width: 2.5em;
+    }
+    &-strip {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0.5em;
+      right: 0;
+      width: calc(100% - 2 * 0.5em);
+      height: 3px;
+      background-color: $color-Dodger-Blue;
+      transition: all $trans-default;
+      &_top {
+        top: 13px;
+      }
+      &_middle {
+        top: 50%;
+        transform: translateY(-1px);
+      }
+      &_bottom {
+        top: auto;
+        bottom: 12px;
+      }
+    }
+    &.is-active & {
+      &-strip {
+        &_middle {
+          transform: translate(0, -50%) scale(0);
+        }
+        &_top {
+          transform: rotate(-45deg);
+          top: 1.3em;
+        }
+        &_bottom {
+          transform: rotate(45deg);
+          bottom: 1.05em;
+        }
+      }
+    }
+    @include vp-1023 {
+      position: absolute;
+      top: 50%;
+      left: auto;
+      right: 0;
+      display: flex;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

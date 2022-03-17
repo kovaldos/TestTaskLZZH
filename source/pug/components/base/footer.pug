@@ -1,0 +1,105 @@
+mixin footer(footerMods)
+  -
+    const data = {
+      col1: {
+        text: "Powerful Freelance Marketplace System with ability to change the Users (Freelancers & Clients)"
+      },
+      col2: {
+        title: "For Clients",
+        links: [
+          {
+            href: "#",
+            text: "Find Freelancers",
+          },
+          {
+            href: "#",
+            text: "Post Project",
+          },
+          {
+            href: "#",
+            text: "Refund Policy",
+          },
+          {
+            href: "#",
+            text: "Privacy Policy",
+          },
+        ],
+      },
+      col3: {
+        title: "For Freelancers",
+        links: [
+          {
+            href: "#",
+            text: "Find Work",
+          },
+          {
+            href: "#",
+            text: "Create Account",
+          },
+        ],
+      },
+      col4: {
+        title: "Call Us",
+        links: [
+          {
+            icon: "icon-location",
+            href: "#",
+            text: "Kenya",
+          },
+          {
+            icon: "icon-phone",
+            href: "tel:+25470000000",
+            text: "+25470000000",
+          },
+          {
+            icon: "icon-email",
+            href: "mailto:bluelance@gmail.com",
+            text: "bluelance@gmail.com",
+          },
+        ],
+      },
+      copy: "2022 Spacelance. All right reserved",
+    }
+  footer.footer(class=footerMods)
+    .container
+      .footer__columns 
+        .footer__column.col-1
+          if(currentUrl === "index.html")
+            //- lighthouse снимает 10 баллов SEO за <a> без href
+            span.logo.footer__logo
+              +picture("content", "logo", "png", 315, 68, "Логотип")
+          else
+            a.logo.footer__logo(href="index.html" aria-label="Переход на главную")
+              +picture("content", "logo", "png", 315, 68, "Логотип")
+          p.footer__text=data.col1.text
+          ul.footer__social-list.social-list
+            li.footer__social-list-item
+              a.footer__social-list-link(href="#") 
+                +icon("icon-instagram", 30, 30).footer__social-list-link-icon.icon-instagram
+            li.footer__social-list-item
+              a.footer__social-list-link(href="#") 
+                +icon("icon-tweeter", 25, 25).footer__social-list-link-icon.icon-tweeter
+            li.footer__social-list-item
+              a.footer__social-list-link(href="#") 
+                +icon("icon-facebook", 30, 30).footer__social-list-link-icon.icon-facebook
+        .footer__column.col-2
+          h2.footer__column-title=data.col2.title 
+          ul.footer__column-list
+            each item in data.col2.links 
+              li.footer__column-list-item
+                a.footer__column-list-link(href=item.href)=item.text 
+        .footer__column.col-3
+          h2.footer__column-title=data.col3.title 
+          ul.footer__column-list
+            each item in data.col3.links 
+              li.footer__column-list-item
+                a.footer__column-list-link(href=item.href)=item.text 
+        .footer__column.col-4
+          h2.footer__column-title=data.col4.title 
+          ul.footer__column-list
+            each item in data.col4.links 
+              li.footer__column-list-item
+                a.footer__column-list-link(href=item.href)=item.text
+                  +icon(item.icon, 24, 24).footer__column-list-link-icon
+      .footer__copy
+        span.footer__copy-text=data.copy

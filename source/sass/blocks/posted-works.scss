@@ -1,0 +1,149 @@
+.posted-works {
+	// height: 634px;
+	height: 26.42em;
+	margin: 7.333em 0 3.042em 0;
+
+	&__container {
+		position: relative;
+	}
+	&__heading {
+		position: absolute;
+		top: 0;
+		left: 40px;
+		@include vp-1439 {
+			left: 32px;
+		}
+		@include vp-1023 {
+			left: 24px;
+		}
+		@include vp-767 {
+			left: 16px;
+		}
+	}
+	&__title {
+		margin: 0;
+		font-size: 1.5em;
+		line-height: 150%;
+		font-weight: 400;
+		color: $color-Nobel;
+		@include vp-640 {
+			font-size: 1.3em;
+		}
+	}
+	&__subtitle {
+		margin: 0;
+		font-weight: 500;
+		font-size: 2.333em;
+		line-height: 150%;
+		@include vp-640 {
+			font-size: 2em;
+		}
+		&--colored {
+			color: $color-Dodger-Blue;
+		}
+	}
+	&__slider {
+		width: 100%;
+		max-width: 1268px;
+		height: 100%;
+		padding-top: 8.875em;
+		&-button {
+			width: 2.58em;
+			height: 2.58em;
+			border-radius: 50%;
+			box-shadow: 0px 1px 6px rgba($color-default-black, 0.1);
+			margin-top: 0;
+			top: 38px;
+			left: auto;
+			right: 0;
+			transition: all $trans-default;
+			@include vp-640 {
+				top: 80px;
+			}
+			&:hover,
+			&:focus-visible {
+				background-color: $color-Dodger-Blue;
+				svg {
+					color: $color-default-white;
+				}
+			}
+			&::after {
+				display: none;
+			}
+			svg {
+				color: $color-Dodger-Blue;
+			}
+			&--prev {
+				right: 3.625em;
+				svg {
+					transform: rotate(180deg);
+				}
+			}
+			&.swiper-button-disabled {
+				opacity: 0.7;
+			}
+		}
+		.swiper-slide {
+			width: auto;
+		}
+		&-item {
+			width: 100%;
+			height: 100%;
+			// max-width: 372px;
+			padding:0.834em;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			background: $color-default-white;
+			box-shadow: 0px 1px 6px rgba($color-default-black, 0.1);
+			border-radius: 30px;
+		}
+		&-title {
+			margin: 1.07em 0 0.18em 0;
+			font-weight: 500;
+			font-size: 1.33em;
+			line-height: 150%;
+		}
+		&-text {
+			width: 100%;
+			margin: 0;
+			color: $color-Nobel;
+			text-align: center;
+			min-height: 108px;
+		}
+		&-action {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-top: 1.25em;
+		}
+		&-bid {
+			font-weight: 500;
+			text-align: center;
+			&-text {
+				display: block;
+			}
+			&-currency,
+			&-amount {
+				line-height: 175%;
+			}
+		}
+		&-link {
+			font-weight: 500;
+			color: $color-Dodger-Blue;
+			text-decoration: underline;
+			transition: all $trans-default;
+			&:hover {
+				text-decoration: none;
+			}
+			&:focus {
+				border: 0;
+			}
+			&:focus-visible {
+				outline: none;
+				color: $color-Nobel;
+			}
+		}
+	}
+}

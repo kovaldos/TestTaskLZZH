@@ -1,0 +1,71 @@
+mixin benefits ()
+	-
+		const data = {
+			items: [
+				{
+					path: "png-icons",
+					icon: "icon-create-account",
+					title: "Create Account",
+					text: "First you have to create an account here",
+				},
+				{
+					path: "png-icons",
+					icon: "icon-search-work",
+					title: "Search work",
+					text: "Search the best freelance work here",
+				},
+				{
+					path: "png-icons",
+					icon: "icon-save-and-apply",
+					title: "Save and apply",
+					text: "Apply or save and start your work",
+				},
+			],
+			description: {
+				titleStart: "Find The Best ",				
+				titleColored: {
+					href: "#",
+					text: "Freelancers",
+				},
+				titleEnd: " Here",
+				text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut erat bibendum ornare urna, cursus eget convallis. Feugiat imperdiet posuere justo, ultrices interdum sed orci nunc, mattis. Ipsum viverra viverra neque adipiscing arcu, quam dictum. Dui mi viverra dui, sit accumsan, tincidunt massa. Dui cras magnis.",
+				items: [
+					{	
+						classModifier: "die-first",
+						number: "500+",
+						text: "freelancers",
+					},
+					{
+						classModifier: "die-second",
+						number: "300+",
+						text: "freelance work Posted",
+					},
+				],
+			},
+		}
+	
+	section.benefits 
+		.container 
+			.benefits__items
+				each item in data.items
+					.benefits__item
+						.benefits__item-icon-wrapper
+							+picture(item.path, item.icon, "png", 60, 60).benefits__item-icon
+						h2.benefits__item-title=item.title 
+						p.benefits__item-text=item.text
+			.benefits__description 
+				.benefits__description-item.item-01
+					.benefits__description-item-pic
+						+picture("content", "find-freelancers-pic", "png", 666, 587, "girl in a blue jacket")
+					each item in data.description.items
+						.benefits__description-die(class=item.classModifier)
+							span.benefits__description-die-number=item.number 
+							span.benefits__description-die-text=item.text
+				.benefits__description-item.item-02
+					h2.benefits__description-title
+						span=data.description.titleStart 
+						a.benefits__description-title--colored(href=data.description.titleColored.href)=data.description.titleColored.text
+						span=data.description.titleEnd
+					p.benefits__description-text=data.description.text
+
+

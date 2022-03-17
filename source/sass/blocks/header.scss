@@ -1,0 +1,58 @@
+.header {
+  width: 100%;
+  position: fixed;
+  top: 2.125em;
+  z-index: 10;
+  &__container {
+    position: relative;
+  }
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: $color-default-white;
+    border-radius: 50px;
+    padding: 0.625em 1.04em 0.625em 0.825em;
+    margin: 0 -0.625em;
+    @include vp-1023 {
+      box-shadow: 0px 5px 10px 0px rgba($color-default-black, 0.1);
+    }
+  }
+  &__logo {
+    display: block;
+    width: 100%;
+    max-width: 9.915em;
+    picture, img {
+      width: 100%;
+      height: 100%;
+    }
+    @include vp-1023 {
+      margin-right: 0.5em;
+    }
+    @include vp-425 {
+      max-width: 7.915em;
+    }
+    @include vp-374 {
+      max-width: 7em;
+    }
+  }
+  &__btn {
+    &--post {
+      width: 100%;
+      max-width: 10em;
+      padding: .55em;
+      background-color: $color-Dodger-Blue;
+      font-size: 0.835em;
+      line-height: 150%;
+      border-radius: 50px;
+      margin: 0 0 0 2.25em;
+      @include vp-1023 {
+        margin: 0 auto;
+      }
+      @include vp-425 {
+        margin: 0 auto 0 0;
+        max-width: 8.5em;
+      }
+    }
+  }
+}
