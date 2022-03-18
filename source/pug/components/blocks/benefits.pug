@@ -5,18 +5,21 @@ mixin benefits ()
 				{
 					path: "png-icons",
 					icon: "icon-create-account",
+					alt: "icon-create-account",
 					title: "Create Account",
 					text: "First you have to create an account here",
 				},
 				{
 					path: "png-icons",
 					icon: "icon-search-work",
+					alt: "icon-search-work",
 					title: "Search work",
 					text: "Search the best freelance work here",
 				},
 				{
 					path: "png-icons",
 					icon: "icon-save-and-apply",
+					alt: "icon-save-and-apply",
 					title: "Save and apply",
 					text: "Apply or save and start your work",
 				},
@@ -50,7 +53,7 @@ mixin benefits ()
 				each item in data.items
 					.benefits__item
 						.benefits__item-icon-wrapper
-							+picture(item.path, item.icon, "png", 60, 60).benefits__item-icon
+							+picture(item.path, item.icon, "png", 60, 60, item.alt).benefits__item-icon
 						h2.benefits__item-title=item.title 
 						p.benefits__item-text=item.text
 			.benefits__description 

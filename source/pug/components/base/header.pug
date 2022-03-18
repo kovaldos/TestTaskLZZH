@@ -32,10 +32,10 @@ mixin header(headerMods, currentUrl)
         if(currentUrl === "index.html")
           //- lighthouse снимает 10 баллов SEO за <a> без href
           span.logo.header__logo
-            +picture("content", "logo", "png", "100%", 52, "Logo")
+            +picture("content", "logo", "png", 238, 52, "Logo")
         else
           a.logo.header__logo(href="index.html", aria-label="move to main page")
-            +picture("content", "logo", "png", "100%", 52, "Logo")
+            +picture("content", "logo", "png", 238, 52, "Logo")
         nav.main-nav
           button.main-nav__toggle.btn(type="button", aria-label="menu switch", aria-pressed="false" data-menu-icon)
             span.main-nav__toggle-strip.main-nav__toggle-strip_top
